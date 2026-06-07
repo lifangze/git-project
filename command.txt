@@ -1,0 +1,52 @@
+三、本地创建项目 + Git 初始化
+1. 新建项目文件夹
+在电脑上找个地方（比如桌面），新建文件夹 my-first-git-project。
+2. 进入文件夹并初始化 Git
+打开终端，进入该文件夹：
+# Windows（Git Bash）
+cd /c/Users/你的用户名/Desktop/my-first-git-project
+
+# macOS / Linux
+cd ~/Desktop/my-first-git-project
+初始化 Git 仓库：
+git init
+提示 Initialized empty Git repository 即成功。
+
+四、本地 Git 核心操作（add → commit）
+1. 新建文件
+在项目文件夹里新建一个 README.md 文件，写入内容：
+# My First Git Project
+这是我的第一个 Git + GitHub 项目。
+2. 查看状态
+git status
+会看到 README.md 是 Untracked files（未跟踪）。
+3. 添加到暂存区
+git add README.md
+# 或一次性添加所有文件
+git add .
+再 git status，文件变成 Changes to be committed（待提交）。
+4. 提交到本地仓库
+git commit -m "首次提交：初始化项目，添加 README"
+提示 1 file changed 即提交成功。
+五、关联 GitHub 并推送代码
+1. 关联远程仓库
+把之前复制的 GitHub 仓库地址粘贴进来：
+git remote add origin https://github.com/你的用户名/my-first-git-project.git
+验证关联：
+git remote -v
+会显示 origin 对应的地址。
+2. 推送到 GitHub
+git push -u origin main
+-u：以后可以直接用 git push，不用每次写 origin main。
+首次推送会让你输入 GitHub 账号密码（或用 Token）。
+推送成功后，刷新 GitHub 仓库页面，就能看到你的 README.md 了。
+六、日常开发完整流程（以后都这么用）
+以后你修改代码，就按这个循环来：
+修改文件
+查看状态：git status
+暂存：git add .
+提交：git commit -m "描述你改了什么"
+推送：git push
+如果别人改了代码，你要拉取最新：
+ 
+git pull origin main
